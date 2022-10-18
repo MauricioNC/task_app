@@ -1,3 +1,9 @@
-<% before_action :authorized %>
-<h1>Entities#new</h1>
-<p>Find me in app/views/entities/new.html.erb</p>
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
+<%= form_with model: @entity do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :status, placeholder: "Status" %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit %>
+<% end %>

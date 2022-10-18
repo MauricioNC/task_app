@@ -1,2 +1,9 @@
 <h4><%= @user.username %></h4>
-<%= button_to "Logout", sessions_path, method: :delete %>
+<%= link_to "Logout", sessions_path, method: :delete %>
+
+<% if @entity.nil? %>
+  <h2>There's nothig to show</h2>
+  <%= link_to "Create entity", new_entity_path %>
+<% else %>
+  <%= render "shared/entity" %>
+<% end %>
