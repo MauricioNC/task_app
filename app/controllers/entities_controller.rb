@@ -3,10 +3,12 @@ class EntitiesController < ApplicationController
   def index
     @entity = Entity.first
     @task_by_status = {
-      "not_started" => Task.find_by(status: "Not started"),
-      "in_progress" => Task.find_by(status: "In progress"),
-      "done" => Task.find_by(status: "Done")
+      "not_started" => Task.where(status: "Not started"),
+      "in_progress" => Task.where(status: "In progress"),
+      "done" => Task.where(status: "Done")
     }
+
+    pp @task_by_status
   end
 
   def new
@@ -20,7 +22,7 @@ class EntitiesController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "It was not possible to create new entity"
-      redirect_to new_entity_path
+      redirect_to root_path
     end
   end
 

@@ -1,0 +1,7 @@
+<%= form_for @task do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.select :status, ["Not started", "In progress", "Done"] %>
+  <%= f.date_field :endtime %>
+  <%= f.hidden_field :entity_id, value: params[:id] %>
+  <%= f.submit "Create task" %>
+<% end %>
