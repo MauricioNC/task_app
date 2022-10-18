@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authorized
   def new
     @task = Task.new
   end
