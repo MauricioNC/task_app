@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:show, :update, :delete]
   def new
+    redirect_to root_path if session[:user_id]
     @user = User.new
   end
 
