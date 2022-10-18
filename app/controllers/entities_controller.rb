@@ -2,6 +2,11 @@ class EntitiesController < ApplicationController
   before_action :authorized
   def index
     @entity = Entity.first
+    @task_by_status = {
+      "not_started" => Task.find_by(status: "Not started"),
+      "in_progress" => Task.find_by(status: "In progress"),
+      "done" => Task.find_by(status: "Done")
+    }
   end
 
   def new

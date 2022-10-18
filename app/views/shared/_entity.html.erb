@@ -1,1 +1,71 @@
-<h3>Entity</h3>
+<div class="entity">
+  <div class="entity__header">
+    <div class="entity__header--info">
+      <span><%= @entity.name %></span>
+      <br>
+      <span><%= @entity.status %></span>
+    </div>
+    <div class="entity__header--actions">
+      <%= link_to "New task" %>
+    </div>
+  </div>
+  <div class="entity__body">
+    <div class="tasks not_started">
+      <h3>not started</h3>
+      
+      <div class="task__card">
+        <% if @task_by_status["not_started"] %>
+          <% @task_by_status["not_started"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <%= task.status %>
+              <%= task.endtime %>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="tasks in_progress">
+      <h3>in progress</h3>
+      
+      <div class="task__card">
+        <% if @task_by_status["not_started"] %>
+          <% @task_by_status["not_started"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <%= task.status %>
+              <%= task.endtime %>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="tasks done">
+      <h3>done</h3>
+      
+      <div class="task__card">
+        <% if @task_by_status["not_started"] %>
+          <% @task_by_status["not_started"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <%= task.status %>
+              <%= task.endtime %>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
