@@ -1,7 +1,12 @@
 <div class="sidebar">
-  <button class="inbox">Inbox</button>
-  <button class="today">Today</button>
-  <button class="later">Later</button>
+  <div class="sidebar__header">
+    <h2>Entities</h2>
+    <%= link_to  "+", new_entity_path, class: "btn btn__link" %>
+  </div>
+  
+  <div class="inbox" role="button">Inbox</div>
+  <div class="today" role="button">Today</div>
+  <div class="later" role="button">Later</div>
 
   <div class="entities">
     <% if @entity.nil? %>
