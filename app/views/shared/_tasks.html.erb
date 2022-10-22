@@ -1,0 +1,57 @@
+<div class="tasks not_started">
+      <h3>not started</h3>
+      
+      <div class="task__card">
+        <% if !@task_by_status["not_started"].empty? %>
+          <% @task_by_status["not_started"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <span>Status: <%= task.status %></span>
+              <span>Ends at: <%= task.endtime %></span>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4> 
+        <% end %>
+      </div>
+    </div>
+    <div class="tasks in_progress">
+      <h3>in progress</h3>
+      
+      <div class="task__card">
+        <% if !@task_by_status["in_progress"].empty? %>
+          <% @task_by_status["in_progress"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <span>Status: <%= task.status %></span>
+              <span>Ends at: <%= task.endtime %></span>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="tasks done">
+      <h3>done</h3>
+      
+      <div class="task__card">
+        <% if !@task_by_status["done"].empty? %>
+          <% @task_by_status["done"].each do |task| %>
+            <div class="task__card--body">
+              <%= task.name %>
+            </div>
+            <div class="task__card--status">
+              <span>Status: <%= task.status %></span>
+              <span>Ends at: <%= task.endtime %></span>
+            </div>
+          <% end %>
+        <% else %>
+          <h4>There is no task</h4>
+        <% end %>
+      </div>
+    </div>

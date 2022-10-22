@@ -13,7 +13,7 @@
       <span>No hay nada para mostrar</span>
     <% else %>
       <% @entity.each do |e| %>
-        <%= link_to e.name, "", class: "btn btn__action" %>
+        <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
       <% end %>
     <% end %>
   </div>

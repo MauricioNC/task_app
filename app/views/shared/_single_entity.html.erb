@@ -1,12 +1,12 @@
 <div class="entity">
   <div class="entity__header">
     <div class="entity__header--info">
-      <span><%= @entity[0].name %></span>
+      <span><%= @single_entity.name %></span>
       <br>
-      <span><%= @entity[0].status %></span>
+      <span><%= @single_entity.status %></span>
     </div>
     <div class="entity__header--actions">
-      <%= link_to "New task", "#{new_task_path}/#{@entity[0].id}", class: "btn btn__link"%>
+      <%= link_to "New task", "#{new_task_path}/#{@single_entity.id}", class: "btn btn__link"%>
       <div class="filter btn btn__action" role="button">Filter</div>
       <div class="sort btn btn__action" role="button">Sort</div>
       <div class="show_options btn btn__action" role="button">...</div>
@@ -19,6 +19,6 @@
     </div>
   </div>
   <div class="entity__body">
-    <%= render  "shared/tasks" %>
+    <%= render 'shared/tasks' %>
   </div>
 </div>
