@@ -1,5 +1,5 @@
 <h4><%= @user.username %></h4>
-<%= link_to "Logout", sessions_path, class: "btn btn__link" , method: :delete %>
+<%= button_to "Logout", sessions_path, method: :delete, class: "btn btn__link" %>
 
 <%= flash[:notice] if flash[:notice] %>
 <%= flash[:error] if flash[:error]%>

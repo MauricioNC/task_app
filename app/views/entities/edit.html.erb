@@ -1,0 +1,9 @@
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
+<%= form_with model: @single_entity do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :status, placeholder: "Status" %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit %>
+<% end %>

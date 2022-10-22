@@ -2,6 +2,7 @@ class EntitiesController < ApplicationController
   before_action :authorized
   def initialize
     @entity = Entity.all
+    @single_entity = nil
   end
 
   def index
@@ -35,6 +36,23 @@ class EntitiesController < ApplicationController
       "in_progress" => Task.where(entity_id: params[:id],status: "In progress"),
       "done" => Task.where(entity_id: params[:id], status: "Done")
     }
+  end
+
+  def edit
+    @single_entity = Entity.find(params[:id])
+  end
+
+  def update
+    @single_entity = Entity.find(params[:id])
+    @single_entity.update(entities_params)
+
+    if @single_entity.save
+      flash[:notice] = "Entity updated successfully"
+      redirect_to root_path
+    else
+      flash[:error] = "Error updating entity"
+      redirect_to root_path
+    end
   end
 
   private
