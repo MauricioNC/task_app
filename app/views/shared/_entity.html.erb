@@ -6,7 +6,16 @@
       <span><%= @entity[0].status %></span>
     </div>
     <div class="entity__header--actions">
-      <%= link_to "New task", "#{new_task_path}/#{@entity[0].id}"%>
+      <%= link_to "New task", "#{new_task_path}/#{@entity[0].id}", class: "btn btn__link"%>
+      <div class="filter btn btn__action" role="button">Filter</div>
+      <div class="sort btn btn__action" role="button">Sort</div>
+      <div class="show_options btn btn__action" role="button">...</div>
+      <div class="options">
+        <div class="lock_entity btn btn__action">Lock entity</div>
+        <div class="clear_entity btn btn__action">Clear entity</div>
+        <div class="delete_entity btn btn__action">Delete entity</div>
+        <div class="update_entity btn btn__action">Update entity</div>
+      </div>
     </div>
   </div>
   <div class="entity__body">

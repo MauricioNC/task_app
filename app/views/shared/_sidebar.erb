@@ -8,7 +8,7 @@
       <span>No hay nada para mostrar</span>
     <% else %>
       <% @entity.each do |e| %>
-        <%= link_to e.name, ""  %>
+        <%= link_to e.name, "", class: "btn btn__action" %>
       <% end %>
     <% end %>
   </div>
