@@ -7,10 +7,11 @@ class EntitiesController < ApplicationController
 
   def index
     @entity
+    @first = Entity.first()
     @task_by_status = {
-      "not_started" => Task.where(entity_id: 1, status: "Not started"),
-      "in_progress" => Task.where(entity_id: 1,status: "In progress"),
-      "done" => Task.where(entity_id: 1, status: "Done")
+      "not_started" => Task.where(entity_id: @first.id, status: "Not started"),
+      "in_progress" => Task.where(entity_id: @first.id,status: "In progress"),
+      "done" => Task.where(entity_id: @first.id, status: "Done")
     }
   end
 
@@ -53,6 +54,11 @@ class EntitiesController < ApplicationController
       flash[:error] = "Error updating entity"
       redirect_to root_path
     end
+  end
+
+  def destroy
+    @single_entity = Entity.destroy(params[:id])
+    redirect_to root_path
   end
 
   private

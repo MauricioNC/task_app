@@ -21,7 +21,7 @@
             <%= link_to "Clear entity", "", class: "btn btn__action", html: { role: "button" }%>
           </div>
           <div class="delete_entity">
-            <%= link_to "Delete entity", "", class: "btn btn__action", html: { role: "button" } %>
+            <%= button_to "Delete entity", entity_path(@single_entity.id), method: :delete, class: "btn btn__action" %>
           </div>
           <div class="update_entity">
             <%= link_to "Update entity", edit_entity_path(@single_entity.id), class: "btn btn__action", html: { role: "button" } %>

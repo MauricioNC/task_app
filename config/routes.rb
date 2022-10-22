@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'entities/:id', to: 'entities#show'
   put 'entities/:id', to: 'entities#edit'
   put 'entities/:id', to: 'entities#update'
+  delete 'entities/:id', to: 'entities#destroy' 
 
   #======================#
   #==== TASKS ROUTES ====#

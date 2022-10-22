@@ -6,7 +6,7 @@
 
 <%= render "shared/sidebar" %>
 
-<% if @entity.nil? %>
+<% if @entity[0].nil? %>
   <h2>There's nothig to show</h2>
   <%= link_to "Create entity", new_entity_path, class: "btn btn__link" %>
 <% else %>
