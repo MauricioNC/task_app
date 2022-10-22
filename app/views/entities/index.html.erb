@@ -4,6 +4,8 @@
 <%= flash[:notice] if flash[:notice] %>
 <%= flash[:error] if flash[:error]%>
 
+<%= render "shared/sidebar" %>
+
 <% if @entity.nil? %>
   <h2>There's nothig to show</h2>
   <%= link_to "Create entity", new_entity_path %>

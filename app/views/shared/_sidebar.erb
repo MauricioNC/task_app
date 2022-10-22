@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <button class="inbox">Inbox</button>
+  <button class="today">Today</button>
+  <button class="later">Later</button>
+
+  <div class="entities">
+    <% if @entity.nil? %>
+      <span>No hay nada para mostrar</span>
+    <% else %>
+      <% @entity.each do |e| %>
+        <%= link_to e.name, ""  %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

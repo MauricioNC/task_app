@@ -1,14 +1,12 @@
 class EntitiesController < ApplicationController
   before_action :authorized
   def index
-    @entity = Entity.first
+    @entity = Entity.all
     @task_by_status = {
       "not_started" => Task.where(status: "Not started"),
       "in_progress" => Task.where(status: "In progress"),
       "done" => Task.where(status: "Done")
     }
-
-    pp @task_by_status
   end
 
   def new
