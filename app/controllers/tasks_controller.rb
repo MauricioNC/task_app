@@ -39,9 +39,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.delete(params[:id])
+    @task = Task.where(entity_id: params[:id]).delete_all | Task.delete(params[:id])
 
-    if @task
+    if @task > 0
       flash[:notice] = "Task deleted successfully"
       redirect_to root_path
     else
