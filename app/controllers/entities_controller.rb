@@ -1,8 +1,9 @@
 class EntitiesController < ApplicationController
   before_action :authorized
   def initialize
-    @entity = Entity.all
+    @entity = Entity.where(status: "Active")
     @single_entity = nil
+    @entity_locked = Entity.where(status: "Locked")
   end
 
   def index

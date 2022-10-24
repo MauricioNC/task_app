@@ -1,20 +1,33 @@
-<div class="sidebar">
-  <div class="sidebar__header">
-    <h2>Entities</h2>
-    <%= link_to  "+", new_entity_path, class: "btn btn__link" %>
-  </div>
-  
+<div class="sidebar">  
   <div class="inbox" role="button">Inbox</div>
   <div class="today" role="button">Today</div>
   <div class="later" role="button">Later</div>
 
   <div class="entities">
-    <% if @entity.nil? %>
-      <span>No hay nada para mostrar</span>
-    <% else %>
-      <% @entity.each do |e| %>
-        <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
+    <h2>Entities</h2>
+    <%= link_to  "+", new_entity_path, class: "btn btn__link" %>
+    <div class="entitites__active">
+      <% if @entity.nil? %>
+        <span>There's nothing to show</span>
+      <% else %>
+        <% @entity.each do |e| %>
+          <div class="entities__item--active">
+            <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="entities__locked">
+      <h2>Locked</h2>
+      <% if @entity_locked.empty? %>
+        <span>There's nothing to show</span>
+      <% else %>
+        <% @entity_locked.each do |e| %>
+          <div class="entities__item--locked">
+            <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
