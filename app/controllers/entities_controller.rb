@@ -1,14 +1,20 @@
 class EntitiesController < ApplicationController
   before_action :authorized
-  def initialize
-    @entity = Entity.where(status: "Active")
-    @single_entity = nil
-    @entity_locked = Entity.where(status: "Locked")
-  end
 
+  def initialize
+    @entity_locked = nil
+  end
+  
+  def get_entity_locked
+    Entity.where(user_id: session[:user_id]).where(status: "Locked")
+  end
+  
   def index
-    @entity
-    @first = Entity.order(created_at: :desc).where(status: "Active").first()
+    @entity = Entity.where(user_id: session[:user_id]).where(status: "Active")
+    @entity_locked = self.get_entity_locked
+    
+    @first = Entity.order(created_at: :desc).where(user_id: session[:user_id]).where(status: "Active").first()
+    
     if !@first.nil?
       @task_by_status = {
         "not_started" => Task.where(entity_id: @first.id, status: "Not started"),
@@ -34,20 +40,28 @@ class EntitiesController < ApplicationController
   end
 
   def show
-    @single_entity = Entity.find(params[:id])
-    @task_by_status = {
-      "not_started" => Task.where(entity_id: params[:id], status: "Not started"),
-      "in_progress" => Task.where(entity_id: params[:id],status: "In progress"),
-      "done" => Task.where(entity_id: params[:id], status: "Done")
-    }
+    @entity_locked = self.get_entity_locked
+    
+    @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
+
+    if @single_entity.user_id == session[:user_id]
+      @task_by_status = {
+        "not_started" => Task.where(entity_id: params[:id], status: "Not started"),
+        "in_progress" => Task.where(entity_id: params[:id],status: "In progress"),
+        "done" => Task.where(entity_id: params[:id], status: "Done")
+      }
+    else
+      flash[:notice] = "Error, entity consulted does not exist"
+      redirect_to root_path
+    end
   end
 
   def edit
-    @single_entity = Entity.find(params[:id])
+    @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
   end
 
   def update
-    @single_entity = Entity.find(params[:id])
+    @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
     
     params[:name].nil? ? @single_entity.update(entities_params) : @single_entity.status = "Locked"
 
@@ -61,7 +75,7 @@ class EntitiesController < ApplicationController
   end
 
   def destroy
-    @single_entity = Entity.destroy(params[:id])
+    @single_entity = Entity.where(user_id: session[:user_id]).destroy(params[:id])
     redirect_to root_path
   end
 

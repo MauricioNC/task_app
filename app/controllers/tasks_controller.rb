@@ -5,13 +5,19 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(tasks_params)
-    if @task.save 
-      flash[:notice] = "New task created successfully"
+    
+    if verify_entity
+      flash[:error] = "Error creating new task"
       redirect_to root_path
     else
-      flash[:error] = "An error has been ocurre while creating the new task"
-      redirect_to new_task_path
+      @task = Task.new(tasks_params)
+      if @task.save 
+        flash[:notice] = "New task created successfully"
+        redirect_to root_path
+      else
+        flash[:error] = "An error has been ocurre while creating the new task"
+        redirect_to new_task_path
+      end
     end
   end
 

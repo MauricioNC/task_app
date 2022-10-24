@@ -19,7 +19,7 @@
     </div>
     <div class="entities__locked">
       <h2>Locked</h2>
-      <% if @entity_locked.empty? %>
+      <% if @entity_locked.nil? %>
         <span>There's nothing to show</span>
       <% else %>
         <% @entity_locked.each do |e| %>
