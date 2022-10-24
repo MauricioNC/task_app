@@ -15,6 +15,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.where(entity_id: params[:id]).delete_all
+    redirect_to entity_path(params[:id])
+  end
+
   private
 
   def tasks_params

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :entities, only: [:new, :create, :show, :update, :edit, :destroy]
-  resources :tasks, only: [:new, :create]
+  resources :tasks, only: [:new, :create, :update, :edit, :destroy]
   
   root 'entities#index'
   
@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   #======================#
   get 'tasks/new/:id', to: 'tasks#new'
   get 'tasks/create', to: 'tasks#create'
+  delete 'tasks/:id', to: 'tasks#destroy'
 
 end
