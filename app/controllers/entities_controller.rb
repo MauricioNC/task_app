@@ -8,12 +8,14 @@ class EntitiesController < ApplicationController
 
   def index
     @entity
-    @first = Entity.first()
-    @task_by_status = {
-      "not_started" => Task.where(entity_id: @first.id, status: "Not started"),
-      "in_progress" => Task.where(entity_id: @first.id,status: "In progress"),
-      "done" => Task.where(entity_id: @first.id, status: "Done")
-    }
+    @first = Entity.order(created_at: :desc).where(status: "Active").first()
+    if !@first.nil?
+      @task_by_status = {
+        "not_started" => Task.where(entity_id: @first.id, status: "Not started"),
+        "in_progress" => Task.where(entity_id: @first.id,status: "In progress"),
+        "done" => Task.where(entity_id: @first.id, status: "Done")
+      }
+    end
   end
 
   def new
@@ -46,7 +48,8 @@ class EntitiesController < ApplicationController
 
   def update
     @single_entity = Entity.find(params[:id])
-    @single_entity.update(entities_params)
+    
+    params[:name].nil? ? @single_entity.update(entities_params) : @single_entity.status = "Locked"
 
     if @single_entity.save
       flash[:notice] = "Entity updated successfully"

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'entities/create', to: 'entities#create'
   get 'entities/:id', to: 'entities#show'
   put 'entities/:id', to: 'entities#edit'
-  put 'entities/:id', to: 'entities#update'
+  post 'entities/:id', to: 'entities#update'
   delete 'entities/:id', to: 'entities#destroy' 
 
   #======================#

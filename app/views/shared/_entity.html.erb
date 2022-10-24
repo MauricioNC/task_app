@@ -14,7 +14,10 @@
         <span>...</span>
         <div class="options">
           <div class="lock_entity">
-            <%= link_to "Lock entity", "", class: "btn btn__action", html: { role: "button" } %>
+            <%= form_for @first do |f| %>
+              <%= f.hidden_field :status, value: "Locked" %>
+              <%= f.submit "Lock entity" %>
+            <% end %>
           </div>
           <div class="clear_entity">
             <%= button_to "Clear entity", task_path(@entity[0].id), method: :delete, class: "btn btn__action"%>
