@@ -7,30 +7,58 @@
     </div>
     <div class="entity__header--actions">
       
-      <%= link_to "New task", "#{new_task_path}/#{@single_entity.id}", class: "btn btn__link"%>
-      
-      <div class="filter btn btn__action" role="button">Filter</div>
-      <div class="sort btn btn__action" role="button">Sort</div>
-      <div class="show_options btn btn__action" role="button">
-        <span>...</span>
-        <div class="options">
-          <div class="lock_entity">
-            <%= form_for @single_entity do |f| %>
-              <%= f.hidden_field :status, value: "Locked" %>
-              <%= f.submit "Lock entity" %>
-            <% end %>
-          </div>
-          <div class="clear_entity">
-            <%= button_to "Clear entity", task_path(@single_entity.id), method: :delete, class: "btn btn__action"%>
-          </div>
-          <div class="delete_entity">
-            <%= button_to "Delete entity", entity_path(@single_entity.id), method: :delete, class: "btn btn__action" %>
-          </div>
-          <div class="update_entity">
-            <%= link_to "Update entity", edit_entity_path(@single_entity.id), class: "btn btn__action", html: { role: "button" } %>
+      <% if @single_entity.status == "Locked"%>
+        <%= link_to "New task", "#{new_task_path}/#{@single_entity.id}", class: "btn btn__link btn__link--locked"%>
+        
+        <div class="filter btn btn__action" role="button">Filter</div>
+        <div class="sort btn btn__action" role="button">Sort</div>
+        <div class="show_options btn btn__action" role="button">
+          <span>...</span>
+          <div class="options">
+            <div class="lock_entity">
+              <%= form_for @single_entity do |f| %>
+                <%= f.hidden_field :status, value: "Locked" %>
+                <%= f.submit "Lock entity", class: "btn btn__action btn__action--locked" %>
+              <% end %>
+            </div>
+            <div class="clear_entity">
+              <%= button_to "Clear entity", task_path(@single_entity.id), method: :delete, class: "btn btn__action btn__action--locked"%>
+            </div>
+            <div class="delete_entity">
+              <%= button_to "Delete entity", entity_path(@single_entity.id), method: :delete, class: "btn btn__action btn__action--locked" %>
+            </div>
+            <div class="update_entity">
+              <%= link_to "Update entity", edit_entity_path(@single_entity.id), class: "btn btn__action btn__action", html: { role: "button" } %>
+            </div>
           </div>
         </div>
-      </div>
+      <% else %>
+        <%= link_to "New task", "#{new_task_path}/#{@single_entity.id}", class: "btn btn__link btn__link--locked"%>
+        
+        <div class="filter btn btn__action" role="button">Filter</div>
+        <div class="sort btn btn__action" role="button">Sort</div>
+        <div class="show_options btn btn__action" role="button">
+          <span>...</span>
+          <div class="options">
+            <div class="lock_entity">
+              <%= form_for @single_entity do |f| %>
+                <%= f.hidden_field :status, value: "Locked" %>
+                <%= f.submit "Lock entity", class: "btn btn__action btn__action--locked" %>
+              <% end %>
+            </div>
+            <div class="clear_entity">
+              <%= button_to "Clear entity", task_path(@single_entity.id), method: :delete, class: "btn btn__action btn__action--locked"%>
+            </div>
+            <div class="delete_entity">
+              <%= button_to "Delete entity", entity_path(@single_entity.id), method: :delete, class: "btn btn__action btn__action--locked" %>
+            </div>
+            <div class="update_entity">
+              <%= link_to "Update entity", edit_entity_path(@single_entity.id), class: "btn btn__action btn__action", html: { role: "button" } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
   <div class="entity__body">
