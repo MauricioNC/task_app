@@ -63,7 +63,7 @@ class EntitiesController < ApplicationController
   def update
     @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
     
-    params[:name].nil? ? @single_entity.update(entities_params) : @single_entity.status = "Locked"
+    params[:name].nil? == false ? @single_entity.status = "Locked" : @single_entity.update(entities_params)
 
     if @single_entity.save
       flash[:notice] = "Entity updated successfully"
