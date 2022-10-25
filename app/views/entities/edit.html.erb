@@ -1,5 +1,5 @@
-<%= flash[:notice] %>
-<%= flash[:error] %>
+<%= render  "shared/navbar" %>
+<%= render  "shared/sidebar" %>
 
 <%= form_with model: @single_entity do |f| %>
   <%= f.text_field :name, placeholder: "Name" %>

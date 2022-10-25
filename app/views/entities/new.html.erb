@@ -1,9 +1,10 @@
-<%= flash[:notice] %>
-<%= flash[:error] %>
+<%= render  "shared/navbar" %>
 
-<%= form_with model: @entity do |f| %>
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.text_field :status, placeholder: "Status" %>
-  <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.submit %>
-<% end %>
+<div class="new_entity_form">
+  <%= form_with model: @entity do |f| %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_field :status, placeholder: "Status" %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit %>
+  <% end %>
+</div>

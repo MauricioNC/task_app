@@ -1,3 +1,6 @@
+<%= render  "shared/navbar" %>
 <%= render  "shared/sidebar" %>
-
-<%= render 'shared/single_entity' %>
+<div class="main">
+  <h2><%= @single_entity.name %></h2>
+  <%= render 'shared/single_entity' %>
+</div>
