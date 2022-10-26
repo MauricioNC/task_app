@@ -1,7 +1,6 @@
 <div class="navbar">
-  <%= form_with url: '/search', method: :get do |f| %>
+  <%= form_with url: '/search', method: :get, class: 'search' do |f| %>
     <%= f.text_field :entity_name, placeholder: 'Search name' %>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
     <%= f.submit "Search", disable_with: 'Searching...' %>
   <% end %>
   <%= button_to "Logout", sessions_path, method: :delete, class: "btn btn__action" %>
