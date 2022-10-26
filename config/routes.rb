@@ -32,4 +32,9 @@ Rails.application.routes.draw do
   put 'tasks/:id/:status', to: 'tasks#update'
   delete 'tasks/:id', to: 'tasks#destroy'
 
+#=========================#
+#==== SEARCHER ROUTES ====#
+#=========================#
+get '/search', to: 'searcher#search'
+
 end
