@@ -1,0 +1,26 @@
+@import '../default/variables';
+
+.navbar {
+  background-color: $navbar-bg;
+  color: #cacaca;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  form.search {
+    input[type="submit"] {
+      position: absolute;
+      margin-top: 0.08rem;
+      margin-left: -3.5rem;
+      padding: 0.39rem;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      color: #e7e7e7;
+      background-color: $navbar-bg;
+    }
+  }
+}

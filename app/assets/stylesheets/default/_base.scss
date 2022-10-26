@@ -31,3 +31,10 @@ input[type="text"], select, textarea {
 
 input::placeholder { color: #a0a0a0; }
 
+.btn {
+  border: none;
+  outline: none;
+  padding: 7px;
+  border-radius: $border-rad-3;
+}
+
