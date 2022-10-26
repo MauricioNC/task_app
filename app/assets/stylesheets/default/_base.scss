@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,600&display=swap');
+@import 'variables';
+
+*, html, body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font-f;
+  background-color: #FDFDFD;
+  font-size: $font-size-std;
+}
+
+h1 { font-size: $font-size-std; }
+h2 { font-size: $font-size-std; }
+h3 { font-size: $font-size-xxl; }
+h4 { font-size: $font-size-xxl; }
+h5 { font-size: $font-size-xxxl; }
+h6 { font-size: $font-size-xxxl; }
+
+input[type="text"], select, textarea {
+  border: 1px solid $border;
+  border-radius: $border-rad-3;
+  font-size: $font-size-std;
+  padding: 5px;
+  outline: none;
+  width: 15rem;
+}
+
+input::placeholder { color: #a0a0a0; }
+

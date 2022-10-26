@@ -9,7 +9,7 @@
   <% if @entity[0].nil? %>
     <div class="empty">
       <h2>There's nothig to show</h2>
-      <%= link_to "Create entity", new_entity_path, class: "btn btn__link" %>
+      <%= link_to "Create entity", new_entity_path, class: "btn btn__action" %>
     </div>
   <% else %>
     <h2><%= @entity[0].name %></h2>

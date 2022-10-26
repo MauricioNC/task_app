@@ -12,7 +12,7 @@
       <% else %>
         <% @entity.each do |e| %>
           <div class="entities__item--active">
-            <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
+            <%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
           </div>
         <% end %>
       <% end %>
@@ -24,7 +24,7 @@
       <% else %>
         <% @entity_locked.each do |e| %>
           <div class="entities__item--locked">
-            <%= link_to e.name, entity_path(e.id), class: "btn btn__action" %>
+            <%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
           </div>
         <% end %>
       <% end %>

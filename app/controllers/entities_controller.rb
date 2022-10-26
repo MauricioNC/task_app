@@ -1,18 +1,12 @@
 class EntitiesController < ApplicationController
-  before_action :authorized
+  before_action :authorized, :init
 
-  def initialize
-    @entity_locked = nil
-  end
-  
-  def get_entity_locked
-    Entity.where(user_id: session[:user_id]).where(status: "Locked")
+  def init
+    @entity = Entity.where(user_id: session[:user_id]).where(status: "Active")
+    @entity_locked = Entity.where(user_id: session[:user_id]).where(status: "Locked")
   end
   
   def index
-    @entity = Entity.where(user_id: session[:user_id]).where(status: "Active")
-    @entity_locked = self.get_entity_locked
-    
     @first = Entity.order(created_at: :desc).where(user_id: session[:user_id]).where(status: "Active").first()
     
     if !@first.nil?
@@ -40,8 +34,6 @@ class EntitiesController < ApplicationController
   end
 
   def show
-    @entity_locked = self.get_entity_locked
-    
     @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
 
     if @single_entity.user_id == session[:user_id]
