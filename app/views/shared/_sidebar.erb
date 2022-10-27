@@ -4,27 +4,31 @@
   <div class="later" role="button">Later</div>
 
   <div class="entities">
-    <h2>Entities</h2>
-    <%= link_to  "+", new_entity_path, class: "btn btn__link" %>
-    <div class="entitites__active">
+    <div>
+      <h3>Acive entities</h3>
+      <%= link_to  "+", new_entity_path, class: "btn__link" %>
+    </div>
+    <div class="entities__active">
       <% if @entity.nil? %>
         <span>There's nothing to show</span>
       <% else %>
         <% @entity.each do |e| %>
           <div class="entities__item--active">
-            <%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
+            <span>&#x25cf;</span><%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
           </div>
         <% end %>
       <% end %>
     </div>
+    <div>
+      <h3>Locked</h3>
+    </div>
     <div class="entities__locked">
-      <h2>Locked</h2>
       <% if @entity_locked.nil? %>
         <span>There's nothing to show</span>
       <% else %>
         <% @entity_locked.each do |e| %>
           <div class="entities__item--locked">
-            <%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
+            <span>&#x25cf;</span><%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
           </div>
         <% end %>
       <% end %>
