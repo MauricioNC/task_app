@@ -7,7 +7,7 @@
             <div class="task__card--header">
               <span>...</span>
               <div class="task__actions">
-                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__action", html: { role: "button" } %>
+                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__link", html: { role: "button" } %>
                 <%= button_to "Delete task", task_path(task.id), method: :delete, class: "btn btn__action"%>
                 <div class="task__actions--status">
                   <%= form_for task do |f| %>
@@ -43,7 +43,7 @@
             <div class="task__card--header">
               <span>...</span>
               <div class="task__actions">
-                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__action", html: { role: "button" } %>
+                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__link", html: { role: "button" } %>
                 <%= button_to "Delete task", task_path(task.id), method: :delete, class: "btn btn__action"%>
                 <div class="task__actions--status">
                   <%= form_for task do |f| %>
@@ -79,7 +79,7 @@
             <div class="task__card--header">
               <span>...</span>
               <div class="task__actions">
-                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__action", html: { role: "button" } %>
+                <%= link_to "Update task", edit_task_path(task.id), class: "btn btn__link", html: { role: "button" } %>
                 <%= button_to "Delete task", task_path(task.id), method: :delete, class: "btn btn__action"%>
                 <div class="task__actions--status">
                   <%= form_for task do |f| %>

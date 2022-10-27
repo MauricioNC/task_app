@@ -36,6 +36,7 @@ input::placeholder { color: #a0a0a0; }
   outline: none;
   padding: 7px;
   border-radius: $border-rad-3;
+  color: #2b2a2a;
 }
 
 .main {
@@ -45,7 +46,12 @@ input::placeholder { color: #a0a0a0; }
   grid-template-rows: auto;
 }
 
-.btn__link {
-  text-decoration: none;
-  color: #494848;
+.btn__link { text-decoration: none; }
+
+.btn__link--locked,
+.btn__action--locked {
+  color: #747474;
+  pointer-events: none;
 }
+
+
