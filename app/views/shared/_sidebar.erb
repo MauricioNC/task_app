@@ -1,7 +1,7 @@
 <div class="sidebar">  
-  <div class="inbox" role="button">Inbox</div>
-  <div class="today" role="button">Today</div>
-  <div class="later" role="button">Later</div>
+  <div class="inbox btn btn__action" role="button">Inbox</div>
+  <div class="today btn btn__action" role="button">Today</div>
+  <div class="later btn btn__action" role="button">Later</div>
 
   <div class="entities">
     <div>
@@ -9,10 +9,10 @@
       <%= link_to  "+", new_entity_path, class: "btn__link" %>
     </div>
     <div class="entities__active">
-      <% if @entity.nil? %>
+      <% if @global_entities.nil? %>
         <span>There's nothing to show</span>
       <% else %>
-        <% @entity.each do |e| %>
+        <% @global_entities.each do |e| %>
           <div class="entities__item--active">
             <span>&#x25cf;</span><%= link_to e.name, entity_path(e.id), class: "btn btn__link" %>
           </div>

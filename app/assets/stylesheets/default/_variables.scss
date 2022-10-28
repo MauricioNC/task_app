@@ -10,7 +10,7 @@ $font-size-xxl: 1.38rem;
 $font-size-xxxl: 1.45rem;
 
 $font-color-danger: rgba(227, 14, 27, 0.85);
-$font-color-warnin: rgba(227, 142, 14, 0.89);
+$font-color-warning: rgba(227, 142, 14, 0.89);
 $font-color-success: rgba(67, 176, 15, 0.85);
 
 $bg-danger: rgba(237, 166, 166, 0.3);
@@ -23,3 +23,33 @@ $border-rad-6: 6px;
 $border-rad-8: 8px;
 
 $border: rgba(161, 161, 161, 0.87);
+
+@mixin dp-flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin dp-flex-start() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin dp-flex-end() {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+@mixin dp-flex-sbet() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin dp-flex-sard() {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

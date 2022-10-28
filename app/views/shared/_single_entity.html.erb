@@ -15,7 +15,7 @@
         <div class="sort btn btn__action" role="button">Sort</div>
         <div class="show_options btn btn__action" role="button">
           <span>...</span>
-          <div class="options">
+          <div class="options" id="options">
             <div class="lock_entity">
               <%= form_for @single_entity do |f| %>
                 <%= f.hidden_field :status, value: "Locked" %>
@@ -40,7 +40,7 @@
         <div class="sort btn btn__action" role="button">Sort</div>
         <div class="show_options btn btn__action" role="button">
           <span>...</span>
-          <div class="options">
+          <div class="options" id="options">
             <div class="lock_entity">
               <%= form_for @single_entity do |f| %>
                 <%= f.hidden_field :status, value: "Locked" %>

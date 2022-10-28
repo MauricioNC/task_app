@@ -2,9 +2,9 @@
   <h2><%= @entity[0].name %></h2>
   <div class="entity__header">
     <div class="entity__header--info">
-      <span><%= @entity[0].name %></span>
+      <span><%= @entity[0].name %>:</span>
       <br>
-      <span><%= @entity[0].status %></span>
+      <span id="entity_status"><%= @entity[0].status %></span>
     </div>
     <div class="entity__header--actions">
 
@@ -15,11 +15,11 @@
         <div class="sort btn btn__action btn__action--locked" role="button">Sort</div>
         <div class="show_options btn btn__action btn__action--locked" role="button">
           <span>...</span>
-          <div class="options">
+          <div class="options" id="options">
             <div class="lock_entity">
               <%= form_for @first do |f| %>
                 <%= f.hidden_field :status, value: "Locked" %>
-                <%= f.submit "Lock entity" %>
+                <%= f.submit "Lock entity", class: "btn btn__action btn__action--locked" %>
               <% end %>
             </div>
             <div class="clear_entity">
@@ -40,11 +40,11 @@
         <div class="sort btn btn__action" role="button">Sort</div>
         <div class="show_options btn btn__action" role="button">
           <span>...</span>
-          <div class="options">
+          <div class="options" id="options">
             <div class="lock_entity">
               <%= form_for @first do |f| %>
                 <%= f.hidden_field :status, value: "Locked" %>
-                <%= f.submit "Lock entity" %>
+                <%= f.submit "Lock entity", class: "btn btn__action" %>
               <% end %>
             </div>
             <div class="clear_entity">

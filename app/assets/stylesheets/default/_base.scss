@@ -31,19 +31,22 @@ input[type="text"], select, textarea {
 
 input::placeholder { color: #a0a0a0; }
 
+.main {
+  height: calc(100vh - 50px);
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: calc(100vh - 50px);
+}
+
 .btn {
   border: none;
   outline: none;
   padding: 7px;
   border-radius: $border-rad-3;
   color: #2b2a2a;
-}
-
-.main {
-  height: calc(100vh - 50px);
-  display: grid;
-  grid-template-columns: 300px auto;
-  grid-template-rows: auto;
+  font-size: $font-size-sm;
+  font-family: 'Montserrat';
+  background-color: transparent;
 }
 
 .btn__link { text-decoration: none; }
@@ -54,4 +57,13 @@ input::placeholder { color: #a0a0a0; }
   pointer-events: none;
 }
 
+.btn, .btn__action, .btn__link {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+}
 
+:where(.inbox, .today, .later, .entities__active, .btn__link, .btn__action):hover {
+  background-color: #f3f1ed;
+}

@@ -1,0 +1,49 @@
+@import '../default/variables';
+
+.entity {
+  padding: 5rem;
+
+  h2 { margin-bottom: 5rem; }
+
+  &__header {
+    border-bottom: 1px solid $border;
+    @include dp-flex-sbet;
+
+    &--info {
+      @include dp-flex-center;
+
+      span { margin: 2px; }
+      span#entity_status { color: $font-color-success; font-weight: 600; }
+    }
+
+    .entity__header--actions {
+      @include dp-flex-center;
+      align-content: center;
+
+      >:nth-child(n) { margin: 0 3px; }
+    }
+  }
+  
+  .show_options {
+    .options {
+      border: 1px solid rgba(116, 116, 116, 0.349);
+      box-shadow: 2px 3px 10px 2px rgba(155, 155, 155, 0.315);
+      border-radius: $border-rad-3;
+      position: absolute;
+      display: none;
+      top: 17rem;
+      right: 5rem;
+      padding: 5px 0px;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+
+        .btn { width: 100%; border-radius: 0;}
+
+      }
+    }
+  }
+}
+
+
