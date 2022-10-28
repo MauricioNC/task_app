@@ -1,3 +1,14 @@
+<% if flash[:notice] %>
+  <div id="flash-notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div id="flash-error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 <div class="entity">
   <h2><%= @entity[0].name %></h2>
   <div class="entity__header">

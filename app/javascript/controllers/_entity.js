@@ -15,4 +15,15 @@ window.onload = () => {
     }
     
   }
+  const redirect_delay = () => {
+    flash_notice = document.getElementById("flash-notice");
+
+    if(flash_notice) {
+      setTimeout(() => {
+        window.location = '/';
+      }, 3000);
+    }
+  }
+
+  redirect_delay();
 }

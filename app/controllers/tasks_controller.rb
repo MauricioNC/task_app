@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authorized
+  before_action :authorized, :init
   def new
     if verify_entity
       flash[:error] = "Error creating new task"

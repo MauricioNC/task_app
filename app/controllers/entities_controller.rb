@@ -1,12 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :authorized, :init
 
-  def init
-    @global_entities = Entity.where(user_id: session[:user_id]).where(status: "Active")
-    @entity = Entity.where(user_id: session[:user_id]).where(status: "Active")
-    @entity_locked = Entity.where(user_id: session[:user_id]).where(status: "Locked")
-  end
-  
   def index
     @first = Entity.order(created_at: :desc).where(user_id: session[:user_id]).where(status: "Active").first()
     
