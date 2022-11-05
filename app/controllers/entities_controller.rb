@@ -2,8 +2,7 @@ class EntitiesController < ApplicationController
   before_action :authorized, :init
 
   def index
-    @first = Entity.order(created_at: :desc).where(user_id: session[:user_id]).where(status: "Active").first()
-    
+    @first = Entity.order(created_at: :asc).where(user_id: session[:user_id]).where(status: "Active").first()
     if !@first.nil?
       @task_by_status = {
         "not_started" => Task.where(entity_id: @first.id, status: "Not started"),
@@ -49,7 +48,7 @@ class EntitiesController < ApplicationController
 
   def update
     @single_entity = Entity.where(user_id: session[:user_id]).find(params[:id])
-    
+
     params[:name].nil? == false ? @single_entity.status = "Locked" : @single_entity.update(entities_params)
 
     if @single_entity.save
