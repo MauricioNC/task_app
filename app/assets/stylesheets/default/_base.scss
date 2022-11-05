@@ -11,6 +11,7 @@ body {
   font-family: $font-f;
   background-color: #FDFDFD;
   font-size: $font-size-std;
+  overflow: hidden;
 }
 
 h1 { font-size: $font-size-xxxl;  font-weight: 700; }
