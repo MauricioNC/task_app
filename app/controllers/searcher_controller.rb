@@ -14,7 +14,7 @@ class SearcherController < ApplicationController
         redirect_to root_path
         return
       else
-        render entity_path(entity.id)
+        redirect_to entity_path(entity.id)
       end
     end
   end
